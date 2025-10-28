@@ -1,0 +1,228 @@
+package th.ac.kmutt.cpe.algorithm.polwarit;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+import th.ac.kmutt.cpe.algorithm.polwarit.android.Android;
+import th.ac.kmutt.cpe.algorithm.polwarit.makeAWish.MakeAWish;
+import th.ac.kmutt.cpe.algorithm.polwarit.nextPermutation.NextPerm;
+import th.ac.kmutt.cpe.algorithm.polwarit.quickselect.QuickSelect;
+import th.ac.kmutt.cpe.algorithm.polwarit.sort.PancakeSort;
+import th.ac.kmutt.cpe.algorithm.polwarit.sort.PresortElenentUniqueness;
+import th.ac.kmutt.cpe.algorithm.polwarit.sort.QuickSort;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("====================================================");
+        System.out.println("||            EXAMINATION EXERCISE                ||");
+        System.out.println("====================================================");
+        displayExChoices(scan);
+    }
+    
+    private static void displayNextPerm(Scanner scan) {
+        ArrayList<Integer> testcase = new ArrayList<>();
+        System.out.print("Amount of numbers: ");
+        int arrSize = scan.nextInt();
+        System.out.println("-".repeat(15));
+        System.out.println("Input number: ");
+        for (int i = 0; i < arrSize; i++) {
+            testcase.add(scan.nextInt());
+        }
+        System.out.println("-".repeat(15));
+    
+        NextPerm<Integer> np = new NextPerm<>(testcase);
+        System.out.println("Current: " + np.getList());
+        np.nextPermutation();
+        System.out.println("Next:    " + np.getList());
+    }
+
+    private static void displayAndroid(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        int m = scan.nextInt();
+        scan.nextLine();
+        Android android = new Android(n, m);
+    
+        String[] passwords = new String[m];
+        
+        for (int i = 0; i < m; i++) {
+            passwords[i] = scan.nextLine();
+        }
+
+        for (int i = 0; i < m; i++) {
+            long result = android.generatePerm(passwords[i]);
+            System.out.println(result);
+        }
+    }
+
+    private static void displayPancake(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        scan.nextLine();
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            list.add(scan.nextInt());
+        }
+
+        PancakeSort<Integer> pkSort = new PancakeSort<>();
+        pkSort.sort(list);
+        System.out.println(list);        
+    }
+
+    private static void displayQuickSelect(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        scan.nextLine();
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            list.add(scan.nextInt());
+        }
+
+        int k = scan.nextInt();
+
+        QuickSelect qkSelect = new QuickSelect(n, list, k);
+        int result = qkSelect.quickSelect();
+        System.out.println(result);
+    }
+
+    private static void displayMergeSort(Scanner scan) {
+
+    }
+
+    private static void displayQuickSort(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        scan.nextLine();
+
+        ArrayList<Integer> testcase = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            testcase.add(scan.nextInt());
+        }
+
+        QuickSort<Integer> quickSort = new QuickSort<>();
+        quickSort.sort(testcase);
+        System.out.println(testcase);
+    }
+
+    private static void display2D(Scanner scan) {
+
+    }
+
+    private static void displayMakeAWish(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        scan.nextLine();
+        ArrayList<Integer> list = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            list.add(scan.nextInt());
+        }
+
+        MakeAWish wish = new MakeAWish(n, list);
+        int result = wish.makeAWish();
+        System.out.println(result);
+    }
+
+    private static void displayPresorted(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        scan.nextLine();
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            list.add(scan.nextInt());
+        }
+
+        PresortElenentUniqueness<Integer> preSort = new PresortElenentUniqueness<>();
+        preSort.sort(list);
+        System.out.println(list);
+    }
+
+    private static void displayHeapSort(Scanner scan) {
+
+    }
+
+    private static void displayLottery(Scanner scan) {
+
+    }
+
+    private static void displayHashTable(Scanner scan) {
+
+    }
+
+    private static void createChoices(String title, ArrayList<String> items) {
+        System.out.println("-".repeat(15) + " " + title + " " + "-".repeat(15));
+        for (int i = 0; i < items.size(); i++) {
+            System.out.println((i + 1) + ". " + items.get(i));
+        }
+    }
+
+    private static void displayExChoices(Scanner scan) {
+        ArrayList<String> exercises = new ArrayList<>(Arrays.asList(
+            "Did you know that...? (nextPermutation)",
+            "Android (generatePermutation)",
+            "Pancake Sort",
+            "Quick Select (Lomuto Partition)",
+            "Merge Sort? (BottomUpMergeSort)",
+            "Quick Sort (Hoare's Partition)",
+            "2D Closest Pair",
+            "Make a Wish",
+            "Presorted Uniqueness (PresortElenentUniqueness)",
+            "Heap Sort",
+            "Lottery",
+            "Hash Table"
+        ));
+
+        createChoices("EXERCISE CHOICES", exercises);
+        System.out.print("Select Choice: ");
+        int choice = scan.nextInt();
+        switch (choice) {
+            case 1:
+                displayNextPerm(scan);
+                break;
+            case 2:
+                displayAndroid(scan);
+                break;
+            case 3:
+                displayPancake(scan);
+                break;
+            case 4:
+                displayQuickSelect(scan);
+                break;
+            case 5:
+                displayMergeSort(scan);
+                break;
+            case 6:
+                displayQuickSort(scan);
+                break;
+            case 7:
+                display2D(scan);
+                break;
+            case 8:
+                displayMakeAWish(scan);
+                break;
+            case 9:
+                displayPresorted(scan);
+                break;
+            case 10:
+                displayHeapSort(scan);
+                break;
+            case 11:
+                displayLottery(scan);
+                break;
+            case 12:
+                displayHashTable(scan);
+                break;
+            default:
+                System.out.println("Do not have this choice. <(T_T)>");
+                break;
+        }
+    }
+}
+
+//Window    : javac -d bin -sourcepath src .\src\th\ac\kmutt\cpe\algorithm\polwarit\*.java && java -cp bin th.ac.kmutt.cpe.algorithm.polwarit.Main
+//MacOS     : javac -d bin -sourcepath src $(find src -name "*.java") && java -cp bin th.ac.kmutt.cpe.algorithm.polwarit.Main
