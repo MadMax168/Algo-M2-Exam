@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.polwarit.lottery;
+package th.ac.kmutt.cpe.algorithm.polwarit.Practice.lottery;
 
 public class Lottery {
     private String lot;

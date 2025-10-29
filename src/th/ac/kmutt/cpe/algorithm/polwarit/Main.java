@@ -2,20 +2,22 @@ package th.ac.kmutt.cpe.algorithm.polwarit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
-import th.ac.kmutt.cpe.algorithm.polwarit.android.Android;
-import th.ac.kmutt.cpe.algorithm.polwarit.lottery.Lottery;
-import th.ac.kmutt.cpe.algorithm.polwarit.makeAWish.MakeAWish;
-import th.ac.kmutt.cpe.algorithm.polwarit.nextPermutation.NextPerm;
-import th.ac.kmutt.cpe.algorithm.polwarit.quickselect.QuickSelect;
+import th.ac.kmutt.cpe.algorithm.polwarit.Practice.quickselect.QuickSelect;
+import th.ac.kmutt.cpe.algorithm.polwarit.Practice.android.Android;
+import th.ac.kmutt.cpe.algorithm.polwarit.Practice.closestPair.ClosestPair;
+import th.ac.kmutt.cpe.algorithm.polwarit.Practice.closestPair.Point;
+import th.ac.kmutt.cpe.algorithm.polwarit.Practice.hashTable.HashTable;
+import th.ac.kmutt.cpe.algorithm.polwarit.Practice.lottery.Lottery;
+import th.ac.kmutt.cpe.algorithm.polwarit.Practice.makeAWish.MakeAWish;
+import th.ac.kmutt.cpe.algorithm.polwarit.Practice.nextPermutation.NextPerm;
 import th.ac.kmutt.cpe.algorithm.polwarit.sort.BottomUpMergeSort;
 import th.ac.kmutt.cpe.algorithm.polwarit.sort.HeapSort;
 import th.ac.kmutt.cpe.algorithm.polwarit.sort.PancakeSort;
 import th.ac.kmutt.cpe.algorithm.polwarit.sort.PresortElenentUniqueness;
 import th.ac.kmutt.cpe.algorithm.polwarit.sort.QuickSort;
-import th.ac.kmutt.cpe.algorithm.polwarit.sort.SortContext;
-import th.ac.kmutt.cpe.algorithm.polwarit.sort.SortStrategy;
 
 public class Main {
     public static void main(String[] args) {
@@ -24,6 +26,8 @@ public class Main {
         System.out.println("||            EXAMINATION EXERCISE                ||");
         System.out.println("====================================================");
         displayExChoices(scan);
+
+        scan.close();
     }
     //Done
     private static void displayNextPerm(Scanner scan) {
@@ -123,11 +127,24 @@ public class Main {
         quickSort.sort(testcase);
         System.out.println(testcase);
     }
-
+    //Done
     private static void display2D(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        scan.nextLine();
 
+        Point[] pt = new Point[n];
+
+        for (int i = 0; i < n; i++) {
+            pt[i] = new Point(scan.nextDouble(), scan.nextDouble());
+        }
+
+        Arrays.sort(pt, Comparator.comparingDouble(p -> p.x));
+        ClosestPair closest = new ClosestPair();
+        double minDist = closest.efficientClosestPair(pt, 0, n - 1);
+        System.out.printf("%.3f\n", minDist);
     }
-
+    //Done
     private static void displayMakeAWish(Scanner scan) {
         System.out.println("Fill Testcase");
         int n = scan.nextInt();
@@ -190,9 +207,20 @@ public class Main {
         String result = lottery.horspoolMatching();
         System.out.println(result);
     }
-
+    //Done
     private static void displayHashTable(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        int m = scan.nextInt();
+        scan.nextLine();
 
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0; i < m; i++) {
+            list.add(scan.nextLine());
+        }
+
+        HashTable hTable = new HashTable(list);
+        System.out.println(hTable.hashTable(n));
     }
 
     private static void createChoices(String title, ArrayList<String> items) {

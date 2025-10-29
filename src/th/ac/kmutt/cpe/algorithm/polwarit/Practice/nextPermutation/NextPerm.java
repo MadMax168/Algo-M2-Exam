@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.polwarit.nextPermutation;
+package th.ac.kmutt.cpe.algorithm.polwarit.Practice.nextPermutation;
 
 import java.util.ArrayList;
 import java.util.Collections;

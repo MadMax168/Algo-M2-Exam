@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.polwarit.quickselect;
+package th.ac.kmutt.cpe.algorithm.polwarit.Practice.quickselect;
 
 import java.util.ArrayList;
 
