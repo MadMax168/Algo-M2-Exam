@@ -5,12 +5,17 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import th.ac.kmutt.cpe.algorithm.polwarit.android.Android;
+import th.ac.kmutt.cpe.algorithm.polwarit.lottery.Lottery;
 import th.ac.kmutt.cpe.algorithm.polwarit.makeAWish.MakeAWish;
 import th.ac.kmutt.cpe.algorithm.polwarit.nextPermutation.NextPerm;
 import th.ac.kmutt.cpe.algorithm.polwarit.quickselect.QuickSelect;
+import th.ac.kmutt.cpe.algorithm.polwarit.sort.BottomUpMergeSort;
+import th.ac.kmutt.cpe.algorithm.polwarit.sort.HeapSort;
 import th.ac.kmutt.cpe.algorithm.polwarit.sort.PancakeSort;
 import th.ac.kmutt.cpe.algorithm.polwarit.sort.PresortElenentUniqueness;
 import th.ac.kmutt.cpe.algorithm.polwarit.sort.QuickSort;
+import th.ac.kmutt.cpe.algorithm.polwarit.sort.SortContext;
+import th.ac.kmutt.cpe.algorithm.polwarit.sort.SortStrategy;
 
 public class Main {
     public static void main(String[] args) {
@@ -88,9 +93,20 @@ public class Main {
         int result = qkSelect.quickSelect();
         System.out.println(result);
     }
-
+    //Done
     private static void displayMergeSort(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        scan.nextLine();
+        ArrayList<Integer> list = new ArrayList<>();
 
+        for (int i = 0; i < n; i++) {
+            list.add(scan.nextInt());
+        }
+
+        BottomUpMergeSort<Integer> buMergeSort = new BottomUpMergeSort<>();
+        buMergeSort.sort(list);
+        System.out.println(list);
     }
     //Done
     private static void displayQuickSort(Scanner scan) {
@@ -141,13 +157,38 @@ public class Main {
         preSort.sort(list);
         System.out.println(list);
     }
-
+    //Done
     private static void displayHeapSort(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int n = scan.nextInt();
+        scan.nextLine();
+        ArrayList<Integer> list = new ArrayList<>();
 
+        for (int i = 0; i < n; i++) {
+            list.add(scan.nextInt());
+        }
+
+        HeapSort<Integer> hs = new HeapSort<>();
+        hs.sort(list);
     }
-
+    //Done
     private static void displayLottery(Scanner scan) {
+        System.out.println("Fill Testcase");
+        int m = scan.nextInt();
+        int n = scan.nextInt();
+        scan.nextLine();
 
+        String text = scan.nextLine().trim();
+        String pattern = scan.nextLine().trim();
+
+        if (text.length() != m || pattern.length() != n || m < n) {
+            System.out.println("Invalid size of string");
+            return;
+        }
+
+        Lottery lottery = new Lottery(text, pattern);
+        String result = lottery.horspoolMatching();
+        System.out.println(result);
     }
 
     private static void displayHashTable(Scanner scan) {

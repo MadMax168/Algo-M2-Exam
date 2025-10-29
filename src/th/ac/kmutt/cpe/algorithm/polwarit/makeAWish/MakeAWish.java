@@ -18,13 +18,12 @@ public class MakeAWish {
     public void setList( ArrayList<Integer> list ) { this.list = list; }
 
     public int makeAWish() {
-        if (list == null || list.isEmpty() || n < 1 || n > list.size()) {
-            return -1;
-        }
-        return knapsack(list, 0, list.size());
-    }
+        int total = 0;
 
-    private int knapsack(ArrayList<Integer> list, int left, int right) {
-        return -1;
+        for (int i = 0; i < list.size(); i++) {
+            
+        }
+        
+        return total;
     }
 }
