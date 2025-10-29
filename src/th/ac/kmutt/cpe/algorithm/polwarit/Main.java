@@ -20,7 +20,7 @@ public class Main {
         System.out.println("====================================================");
         displayExChoices(scan);
     }
-    
+    //Done
     private static void displayNextPerm(Scanner scan) {
         ArrayList<Integer> testcase = new ArrayList<>();
         System.out.print("Amount of numbers: ");
@@ -37,7 +37,7 @@ public class Main {
         np.nextPermutation();
         System.out.println("Next:    " + np.getList());
     }
-
+    //Done
     private static void displayAndroid(Scanner scan) {
         System.out.println("Fill Testcase");
         int n = scan.nextInt();
@@ -56,7 +56,7 @@ public class Main {
             System.out.println(result);
         }
     }
-
+    //Done
     private static void displayPancake(Scanner scan) {
         System.out.println("Fill Testcase");
         int n = scan.nextInt();
@@ -71,7 +71,7 @@ public class Main {
         pkSort.sort(list);
         System.out.println(list);        
     }
-
+    //Done
     private static void displayQuickSelect(Scanner scan) {
         System.out.println("Fill Testcase");
         int n = scan.nextInt();
@@ -92,7 +92,7 @@ public class Main {
     private static void displayMergeSort(Scanner scan) {
 
     }
-
+    //Done
     private static void displayQuickSort(Scanner scan) {
         System.out.println("Fill Testcase");
         int n = scan.nextInt();
@@ -126,7 +126,7 @@ public class Main {
         int result = wish.makeAWish();
         System.out.println(result);
     }
-
+    //Done
     private static void displayPresorted(Scanner scan) {
         System.out.println("Fill Testcase");
         int n = scan.nextInt();
