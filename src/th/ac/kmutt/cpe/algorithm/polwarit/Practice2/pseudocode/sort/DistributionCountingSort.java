@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.polwarit.Practice2.pseudocode.sort;
+package pseudocode.sort;
 
 public class DistributionCountingSort {
     

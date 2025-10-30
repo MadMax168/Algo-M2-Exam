@@ -1,11 +1,11 @@
-package th.ac.kmutt.cpe.algorithm.polwarit.Practice2.pseudocode.search;
+package pseudocode.search;
 
 import java.util.ArrayList;
 
 public class BinarySearch<T extends Comparable<T>> implements SearchStrategy<T> {
     @Override
     public int search(ArrayList<T> list, T target) {
-        int l = 0, r = list.size();
+        int l = 0, r = list.size() - 1;
 
         while (l <= r) {
             int m = ( l + r ) / 2;

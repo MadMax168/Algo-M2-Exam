@@ -1,5 +1,17 @@
-package th.ac.kmutt.cpe.algorithm.polwarit.Practice2.pseudocode.sort;
+package pseudocode.sort;
 
-public class QuickSort {
-    
+import java.util.ArrayList;
+
+import pseudocode.HoarePartitioning;
+
+public class QuickSort<T extends Comparable<T>> implements SortStrategy<T> {
+    @Override
+    public void sort(ArrayList<T> list) {
+        int l = 0, r = list.size() - 1;
+
+    }
+
+    private void quickSort() {
+        
+    }
 }
