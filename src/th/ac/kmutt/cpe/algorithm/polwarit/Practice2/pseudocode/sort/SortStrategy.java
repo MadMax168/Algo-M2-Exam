@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.polwarit.pseudocode.sort;
+package th.ac.kmutt.cpe.algorithm.polwarit.Practice2.pseudocode.sort;
 
 import java.util.ArrayList;
 

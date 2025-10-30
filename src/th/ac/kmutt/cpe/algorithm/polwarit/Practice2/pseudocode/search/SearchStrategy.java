@@ -1,4 +1,4 @@
-package th.ac.kmutt.cpe.algorithm.polwarit.pseudocode.search;
+package th.ac.kmutt.cpe.algorithm.polwarit.Practice2.pseudocode.search;
 
 import java.util.ArrayList;
 
